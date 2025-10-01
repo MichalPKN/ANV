@@ -1,4 +1,4 @@
-package cv1;
+package Cafe;
 
 /**
  *
@@ -16,6 +16,9 @@ public class cv1 {
         System.out.println(cafe.getCafeName());
         System.out.println(secondCafe.getCafeName());
         System.out.println(CafeConfig.getInstance("cukrarna3").getCafeName());
+        
+        System.out.println(DrinkFactory.createDrink("tea").serve() + " in " + CafeConfig.getInstance("").getCafeName());
+        System.out.println(DrinkFactory.createDrink("lemonade").serve() + " in " + CafeConfig.getInstance("").getCafeName());
         
     }
 
