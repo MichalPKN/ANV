@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class DrinkFactoryTest {
     @Test
-    void testCreateTea() {
+    public void testCreateTea() {
         Drink drink = DrinkFactory.createDrink("tea");
         assertNotNull(drink);
         assertTrue(drink instanceof Tea);
@@ -25,7 +25,7 @@ public class DrinkFactoryTest {
     }
 
     @Test
-    void testCreateLemonade() {
+    public void testCreateLemonade() {
         Drink drink = DrinkFactory.createDrink("lemonade");
         assertNotNull(drink);
         assertTrue(drink instanceof Lemonade);
@@ -33,7 +33,7 @@ public class DrinkFactoryTest {
     }
 
     @Test
-    void testCreateUnknownDrink() {
+    public void testCreateUnknownDrink() {
         Drink drink = DrinkFactory.createDrink("coffee");
         assertNull(drink);
     }
