@@ -4,7 +4,7 @@ package Cafe;
  *
  * @author michal.pokorny
  */
-public class cv1 {
+public class main {
 
     /**
      * @param args the command line arguments
@@ -20,6 +20,9 @@ public class cv1 {
         System.out.println(DrinkFactory.createDrink("tea").serve() + " in " + CafeConfig.getInstance("").getCafeName());
         System.out.println(DrinkFactory.createDrink("lemonade").serve() + " in " + CafeConfig.getInstance("").getCafeName());
         
+        CustomDrink customDrink = new CustomDrink.Builder("coffee").milk().sugar().build();
+        
+        System.out.println(customDrink +" in "+CafeConfig.getInstance("").getCafeName());
     }
 
 }

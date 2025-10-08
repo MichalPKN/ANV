@@ -34,7 +34,7 @@ public class DrinkFactoryTest {
 
     @Test
     public void testCreateUnknownDrink() {
-        Drink drink = DrinkFactory.createDrink("coffee");
+        Drink drink = DrinkFactory.createDrink("nonexistent_drink");
         assertNull(drink);
     }
     
