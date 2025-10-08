@@ -15,6 +15,8 @@ public class DrinkFactory {
                 return new Tea();
             case "lemonade":
                 return new Lemonade();
+            case "coffee":
+                return new Coffee();
             default:
                 System.out.println("Drink " + type + " isn't served here");
                 return null;
