@@ -23,6 +23,12 @@ public class main {
         CustomDrink customDrink = new CustomDrink.Builder("coffee").milk().sugar().build();
         
         System.out.println(customDrink +" in "+CafeConfig.getInstance("").getCafeName());
+        
+        OrderSubject order = new OrderSubject();
+        order.addObserver(new EmployeeObserver("Barista"));
+        order.addObserver(new EmployeeObserver("Waiter"));
+        String msg = customDrink + " in " + CafeConfig.getInstance("").getCafeName();
+        order.notifyAll(msg);
     }
 
 }

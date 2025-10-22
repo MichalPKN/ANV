@@ -11,6 +11,6 @@ package Cafe;
 public class Lemonade implements Drink{
     @Override
     public String serve() {
-        return "Serving lemonade";
+        return KEYWORD + " lemonade";
     }   
 }

@@ -21,7 +21,7 @@ public class DrinkFactoryTest {
         Drink drink = DrinkFactory.createDrink("tea");
         assertNotNull(drink);
         assertTrue(drink instanceof Tea);
-        assertEquals("Serving tea", drink.serve());
+        assertEquals(Drink.KEYWORD + " tea", drink.serve());
     }
 
     @Test
@@ -29,7 +29,7 @@ public class DrinkFactoryTest {
         Drink drink = DrinkFactory.createDrink("lemonade");
         assertNotNull(drink);
         assertTrue(drink instanceof Lemonade);
-        assertEquals("Serving lemonade", drink.serve());
+        assertEquals(Drink.KEYWORD + " lemonade", drink.serve());
     }
 
     @Test
