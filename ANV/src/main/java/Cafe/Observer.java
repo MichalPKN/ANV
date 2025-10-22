@@ -8,7 +8,6 @@ package Cafe;
  *
  * @author michal.pokorny
  */
-public interface Drink {
-    public String KEYWORD = "Ordered";
-    public String serve();
+public interface Observer {
+    public void update(String status);
 }
