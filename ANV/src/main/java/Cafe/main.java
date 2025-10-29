@@ -25,10 +25,21 @@ public class main {
         System.out.println(customDrink +" in "+CafeConfig.getInstance("").getCafeName());
         
         OrderSubject order = new OrderSubject();
-        order.addObserver(new EmployeeObserver("Barista"));
-        order.addObserver(new EmployeeObserver("Waiter"));
+        EmployeeObserver barista = new EmployeeObserver("Barista");
+        order.addObserver(barista);
+        EmployeeObserver waiter = new EmployeeObserver("Waiter");
+        order.addObserver(waiter);
         String msg = customDrink + " in " + CafeConfig.getInstance("").getCafeName();
         order.notifyAll(msg);
+        
+        OrderSubject payment = new OrderSubject();
+        payment.addObserver(waiter);
+        
+        Checkout checkout = new Checkout(new CreditCardPayment());
+        payment.notifyAll(checkout.processPayment(150, 4));
+        checkout.setStrategy(new CashPayment());
+        payment.notifyAll(checkout.processPayment(100, 2));
+
     }
 
 }
