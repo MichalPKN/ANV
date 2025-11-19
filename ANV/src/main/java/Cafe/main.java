@@ -1,5 +1,7 @@
 package Cafe;
 
+import Cafe.second.*;
+
 /**
  *
  * @author michal.pokorny
@@ -39,6 +41,36 @@ public class main {
         payment.notifyAll(checkout.processPayment(150, 4));
         checkout.setStrategy(new CashPayment());
         payment.notifyAll(checkout.processPayment(100, 2));
+        
+
+        CustomDrink coffee = new CustomDrink.Builder("coffee").milk().build();
+        CustomDrink tea = new CustomDrink.Builder("tea").sugar().build();
+        String cafeName = CafeConfig.getInstance("").getCafeName();
+        Command coffeeOrder = new OrderCommand(
+         order,
+         coffee + " in " + cafeName
+        );
+        Command teaOrder = new OrderCommand(
+         order,
+         tea + " in " + cafeName
+        );
+        coffeeOrder.execute();
+        teaOrder.execute();
+        Command payByCard = new PaymentCommand(
+         payment,
+         checkout,
+         150,
+         4
+        );
+        checkout.setStrategy(new CashPayment());
+        Command payByCash = new PaymentCommand(
+         payment,
+         checkout,
+         100,
+         2
+        );
+        payByCard.execute();
+        payByCash.execute();
 
     }
 
